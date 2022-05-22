@@ -9,8 +9,10 @@ class WebScraping:
                 "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8"
         }
 
-        def __init__(self, url:str):
-                response = requests.get(url=url, headers=self.header)
+        rent_url: str = "https://www.mudah.my/kuala-lumpur/properties-for-rent"
+
+        def __init__(self):
+                response = requests.get(url=self.rent_url, headers=self.header)
                 response.raise_for_status()
                 self.content = response.text
                 self.parseContent = BeautifulSoup(self.content, 'html.parser')
